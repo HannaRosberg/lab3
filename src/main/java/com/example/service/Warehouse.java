@@ -31,7 +31,7 @@ public class Warehouse {
     }
 
     public List<Product> getAllProducts() {
-        return new ArrayList<>(products); // Return a copy to ensure immutability
+        return new ArrayList<>(products);
     }
 
     public Product getProductById(int id) {
