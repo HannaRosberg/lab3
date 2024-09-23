@@ -51,17 +51,14 @@ public class ProductTest {
         Product product = new Product(1, "Test Product", Category.ELECTRONICS, 5);
         LocalDateTime initialLastModified = product.getLastModifiedDate();
 
-        // Wait a moment to ensure that time has changed
         try {
             Thread.sleep(1000); // Sleep for 1 second
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
-        // Modify the product
         product.setName("Updated Product");
 
-        // Check that lastModifiedDate has been updated
         assertTrue(product.getLastModifiedDate().isAfter(initialLastModified));
     }
 

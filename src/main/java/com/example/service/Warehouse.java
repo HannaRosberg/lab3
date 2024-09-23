@@ -18,7 +18,6 @@ public class Warehouse {
         products.add(product);
     }
 
-    // Modify an existing product
     public void modifyProduct(int id, String name, Category category, int rating) {
         Product product = getProductById(id);
         if (product != null) {
@@ -31,12 +30,10 @@ public class Warehouse {
         }
     }
 
-    // Get all products
     public List<Product> getAllProducts() {
         return new ArrayList<>(products); // Return a copy to ensure immutability
     }
 
-    // Get product by ID
     public Product getProductById(int id) {
         return products.stream()
                 .filter(p -> p.getId() == id)
@@ -44,7 +41,6 @@ public class Warehouse {
                 .orElse(null);
     }
 
-    // Get products by category, sorted by name
     public List<Product> getProductsByCategory(Category category) {
         return products.stream()
                 .filter(p -> p.getCategory() == category)
@@ -52,14 +48,12 @@ public class Warehouse {
                 .collect(Collectors.toList());
     }
 
-    // Get products created after a certain date
     public List<Product> getProductsCreatedAfter(LocalDateTime date) {
         return products.stream()
                 .filter(p -> p.getCreatedDate().isAfter(date))
                 .collect(Collectors.toList());
     }
 
-    // Get products that have been modified since creation
     public List<Product> getModifiedProducts() {
         return products.stream()
                 .filter(p -> !p.getCreatedDate().equals(p.getLastModifiedDate()))

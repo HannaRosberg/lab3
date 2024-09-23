@@ -63,19 +63,15 @@ public class WarehouseTest {
     public void testGetProductsCreatedAfter() {
         Warehouse warehouse = new Warehouse();
 
-        // Create and add the product
         Product product = new Product(2, "Chair", Category.FURNITURE, 5);
         warehouse.addProduct(product);
 
-        // Call the method under test
         LocalDateTime afterDate = LocalDateTime.now().minusDays(1);
         List<Product> result = warehouse.getProductsCreatedAfter(afterDate);
 
-        // Check the results
         assertEquals(1, result.size());
         assertEquals(product, result.getFirst());
     }
-
 
     @Test
     public void testGetModifiedProducts() {

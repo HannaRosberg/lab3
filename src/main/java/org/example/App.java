@@ -23,23 +23,18 @@ public class App {
         warehouse.addProduct(product4);
         warehouse.addProduct(product5);
 
-        // Get all products
         System.out.println("All Products: " + warehouse.getAllProducts());
 
-        // Get products by category
         List<Product> electronics = warehouse.getProductsByCategory(Category.ELECTRONICS);
         System.out.println("Electronics: " + electronics);
 
-        // Get products created after a certain date
         LocalDateTime oneHourAgo = LocalDateTime.now().minusHours(1);
         List<Product> newProducts = warehouse.getProductsCreatedAfter(oneHourAgo);
         System.out.println("Products created after one hour ago: " + newProducts);
 
-        // Get modified products
         List<Product> modifiedProducts = warehouse.getModifiedProducts();
         System.out.println("Modified products: " + modifiedProducts);
 
-        // Modifying a product
         warehouse.modifyProduct(2, "Updated Smartphone", Category.ELECTRONICS, 10);
         System.out.println("After modification: " + warehouse.getAllProducts());
     }

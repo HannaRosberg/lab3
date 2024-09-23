@@ -10,7 +10,6 @@ public class Product {
     private final LocalDateTime createdDate;
     private LocalDateTime lastModifiedDate;
 
-    // Main constructor
     public Product(int id, String name, Category category, int rating, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.id = id;
         this.name = name;
@@ -20,12 +19,10 @@ public class Product {
         this.lastModifiedDate = lastModifiedDate != null ? lastModifiedDate : this.createdDate;
     }
 
-    // Overloaded constructor for testing
     public Product(int id, String name, Category category, int rating) {
         this(id, name, category, rating, LocalDateTime.now(), LocalDateTime.now());
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -36,7 +33,7 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
-        this.lastModifiedDate = LocalDateTime.now(); // Update last modified date
+        this.lastModifiedDate = LocalDateTime.now();
     }
 
     public Category getCategory() {
